@@ -12,9 +12,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.mlsa_uet_nc.repeatalarm.presentation.ui.add_alarm.AddAlarmBottomSheet
-import com.mlsa_uet_nc.repeatalarm.presentation.ui.navigation.BottomNavItem
-import com.mlsa_uet_nc.repeatalarm.presentation.ui.navigation.BottomNavigationBar
-import com.mlsa_uet_nc.repeatalarm.presentation.ui.navigation.NavHostContainer
+import com.mlsa_uet_nc.repeatalarm.presentation.ui.BottomNavItem
+import com.mlsa_uet_nc.repeatalarm.presentation.ui.BottomNavigationBar
+import com.mlsa_uet_nc.repeatalarm.presentation.ui.NavHostContainer
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,7 +72,9 @@ fun MainScreen(
                 sheetState = sheetSate,
                 shape = RectangleShape
             ){
-                AddAlarmBottomSheet()
+                AddAlarmBottomSheet( onCloseClick = {
+                    viewModel.toggleBottomSheet(false)
+                })
             }
         }
         NavHostContainer(navController, Modifier.padding(innerPadding))

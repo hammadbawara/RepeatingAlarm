@@ -22,19 +22,19 @@ import com.mlsa_uet_nc.repeatalarm.presentation.ui.SampleData
 
 @Composable
 fun AlarmListItem(
-    alarmItem : AlarmListItem,
+    alarmItem : AlarmListItemUiState,
     modifier : Modifier = Modifier,
 ) {
     Card (
         modifier = modifier
             .fillMaxWidth()
             .padding(8.dp, 4.dp)
+            .clickable {  }
     ){
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(12.dp)
-                .clickable {  },
+                .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Column(

@@ -1,4 +1,4 @@
-package com.mlsa_uet_nc.repeatalarm.presentation.ui.navigation
+package com.mlsa_uet_nc.repeatalarm.presentation.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons

@@ -23,7 +23,7 @@ fun AlarmListScreen(
 
 @Composable
 fun AlarmList(
-    alarmList: List<AlarmListItem>,
+    alarmList: List<AlarmListItemUiState>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn (
