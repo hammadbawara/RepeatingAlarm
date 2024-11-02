@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -28,13 +29,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.mlsa_uet_nc.repeatalarm.presentation.ui.SampleData.alarmListSampleData
-import com.mlsa_uet_nc.repeatalarm.presentation.ui.add_alarm.AddAlarmScreen
+import com.mlsa_uet_nc.repeatalarm.ui.add_alarm.AddEditAlarmScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AlarmListScreen() {
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
-    val modalSheetState = rememberModalBottomSheetState()
+    val modalSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     var showAddAlarmScreen by remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
@@ -45,7 +46,7 @@ fun AlarmListScreen() {
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-
+                showAddAlarmScreen = true
             }) {
                 Icon(Icons.Default.Add, contentDescription = "Add Alarm")
             }
@@ -60,12 +61,12 @@ fun AlarmListScreen() {
 
     if (showAddAlarmScreen) {
         ModalBottomSheet(
-            onDismissRequest = { showAddAlarmScreen = false}
+            onDismissRequest = { showAddAlarmScreen = false},
+            sheetState = modalSheetState
         ) {
-            AddAlarmScreen()
+            AddEditAlarmScreen()
         }
     }
-
 }
 
 @Composable
