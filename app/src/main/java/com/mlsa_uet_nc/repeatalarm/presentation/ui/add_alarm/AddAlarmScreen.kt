@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.mlsa_uet_nc.repeatalarm.presentation.ui.components.TimePickerCard
 
 @Composable
-fun AddAlarmBottomSheet(
+fun AddAlarmScreen(
     modifier: Modifier = Modifier,
     onCloseClick: () -> Unit = {},
     onDoneClick: () -> Unit = {}
@@ -216,6 +216,6 @@ fun WeekDaySelector(
 @Composable
 fun AddAlarmBottomSheetPreview() {
     Surface {
-        AddAlarmBottomSheet()
+        AddAlarmScreen()
     }
 }
